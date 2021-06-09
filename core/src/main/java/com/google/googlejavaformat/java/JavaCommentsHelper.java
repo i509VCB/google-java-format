@@ -144,7 +144,17 @@ public final class JavaCommentsHelper implements CommentsHelper {
     StringBuilder builder = new StringBuilder();
     builder.append(lines.get(0).trim());
     int indent = column0 + 1;
-    String indentString = Strings.repeat(" ", indent);
+
+    // 2 Spaces -> 1 tab
+    // i5: This is a bit hacky, but it works for the /*\n
+    // String indentString = Strings.repeat(" ", indent);
+    String indentString;
+    if (indent > 1) {
+      indentString = Strings.repeat("\t", indent / 2) + " ";
+    } else {
+      indentString = Strings.repeat(" ", indent);
+    }
+
     for (int i = 1; i < lines.size(); ++i) {
       builder.append(lineSeparator).append(indentString);
       String line = lines.get(i).trim();
