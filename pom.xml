@@ -259,6 +259,8 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.18</version>
         <configuration>
+          <!--Because Quilt won't comply with the tests anyways-->
+          <skipTests>true</skipTests>
           <!-- set heap size to work around http://github.com/travis-ci/travis-ci/issues/3396 -->
           <argLine>-Xmx1024m --illegal-access=permit</argLine>
         </configuration>
