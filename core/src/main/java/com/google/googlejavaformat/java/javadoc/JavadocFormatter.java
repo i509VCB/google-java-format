@@ -36,7 +36,7 @@ import java.util.regex.Pattern;
  */
 public final class JavadocFormatter {
 
-  static final int MAX_LINE_LENGTH = 120; // For Quilt, keep javadoc at 120
+  static final int MAX_LINE_LENGTH = 125; // For Quilt, keep javadoc at 125
 
   /**
    * Formats the given Javadoc comment, which must start with ∕✱✱ and end with ✱∕. The output will
