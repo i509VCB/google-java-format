@@ -179,7 +179,9 @@ public final class JavaOutput extends Output {
 
   @Override
   public void indent(int indent) {
-    spacesPending.append(Strings.repeat(" ", indent));
+    // Since the google code style considers and indent to be 2 spaces, we divide the indentation by 2 for tabs.
+    spacesPending.append(Strings.repeat("\t", indent / 2));
+    // spacesPending.append(Strings.repeat(" ", indent));
   }
 
   /** Flush any incomplete last line, then add the EOF token into our data structures. */
